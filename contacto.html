@@ -1,0 +1,259 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="favicon.png">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+
+	<link rel="stylesheet" href="css/tiny-slider.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+	<link rel="stylesheet" href="css/glightbox.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- MAPBOX CSS -->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+	<!--FIN MAPBOX CSS -->
+
+	<title>Contacto</title>
+</head>
+<body>
+
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+		<!-- MENU NAVEGADOR -->
+		<nav class="site-nav mt-3">
+			<div class="container">
+				<div class="site-navigation">
+					<div class="row">
+						<div class="col-6 col-lg-2">
+							<a href="index.html" class="logo m-0 float-start">LOGO.</a>
+						</div>
+						<div class="col-lg-10 d-none d-lg-inline-block text-center nav-center-wrap">
+							<ul class="js-clone-nav  text-center site-menu p-0 m-0">
+								<li ><a href="index.html">Inicio</a></li>
+								<li><a href="nosotros.html">¿Quiénes somos?</a></li>
+								<li><a href="propiedad.html">Propiedades</a></li>
+								<li class="active"><a href="contacto.html">Contáctanos</a></li>
+								<li><a href="http://190.114.255.247:195/">Intranet</a></li>
+	
+							</ul>
+						</div>
+						<div class="col-6 col-lg-3 text-lg-end">
+							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+								<span></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</nav>
+		<!-- FIN MENU NAVEGADOR -->
+
+	
+
+	<div class="hero2 overlay" style="padding-top: 0rem;">
+		<div class="img-bg rellax">
+			<img src="images/interiores2.jpg" alt="Image" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-6 mx-auto text-center">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Formulario contactar -->
+	<div class="section SectionformContactar" style="padding-bottom:1rem;">
+		<div class="container">
+			<div class="row">
+				<div class="col-12"	data-aos="fade-up" data-aos-delay="0">				
+					<h2 class="heading mb-5">Contáctenos</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
+					<div class="contact-info" id="container-form-contact">
+						<form  method="post"  id="form-contact" action="" name="FormSubmit">
+							<div class="row">
+								<div class="col-6 mb-3">
+									<input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" value="nombre">
+								</div>
+								<div class="col-6 mb-3">
+									<input type="email" class="form-control" placeholder="E-mail" id="email" name="email" value="email">
+								</div>
+								<div class="col-6 mb-3">
+									<input type="number" class="form-control" placeholder="Teléfono" id="phone" name="phone" value="phone">
+								</div>
+								<div class="col-6 mb-3">
+									<input type="text" class="form-control" placeholder="Asunto" id="asunto" name="asunto" value="asunto">
+
+								</div>
+								<div class="col-12 mb-3">
+									<textarea  cols="30" rows="7" class="form-control" placeholder="Mensaje" id="mensaje" name="mensaje" value="mensaje"></textarea>
+								</div>
+								<div class="col-12 d-flex justify-content-end">
+									<input type="submit" value="Enviar" class="btn btn-primary">
+								</div>
+							</div>
+						</form>
+						<br>
+						<div id="respuesta"></div>
+					</div>
+				</div>
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" style="padding-bottom:5rem;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+					<div class="contact-info">
+						<div class="email ">
+							<i class="icon-envelope"></i>
+							<h4 class="mb-2">E-mail:</h4>
+							<p>contacto@rukam.cl / dsalinas@rukam.cl</p>
+						</div> 
+						<div class="phone mt-5">
+							<i class="icon-phone"></i>
+							<h4 class="mb-2">Llamar:</h4>
+							<p>+569 9130 4511</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+					<div class="contact-info">
+						<div class="open-hours">
+							<i class="icon-clock-o"></i>
+							<h4 class="mb-2">Horarios:</h4>
+							<div class="d-flex">
+								<p>
+									<b>Lunes a Viernes</b> <br>
+									8:30 AM - 18:00 PM
+								</p>
+								<br>
+							</div>
+						</div>
+						<div class="address mt-4">
+							<i class="icon-room"></i>
+							<h4 class="mb-2">Ubicación:</h4>
+							<p>Apoquindo 7935 Of. 410-b</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Fin Formulario contactar -->
+
+
+
+		<!-- FOOTER -->
+	<div class="site-footer" style="padding-top:3rem !important;padding-bottom: 1rem;">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="widget">
+						<h3>Contáctanos</h3>
+						<address>Apoquindo 7935 Of. 410-b</address>
+						<ul class="list-unstyled links mb-4">
+							<li><a href="">+569 9130 4511</a></li>				
+							<li><a href="">contacto@rukam.cl / dsalinas@rukam.cl</a></li>
+						</ul>
+					</div>
+				</div> 
+				<div class="col-lg-4 ml-auto">
+					<div class="widget">
+						<h3>Menú</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="nosotros.html">¿Quiénes somos?</a></li>
+							<li><a href="propiedad.html">Propiedades</a></li>
+							<li><a href="contacto.html">Contáctanos</a></li>
+							<li><a href="http://190.114.255.247:195/">Intranet</a></li>
+						</ul>
+					</div> 
+				</div> 
+				<div class="col-lg-4">
+					<div class="widget">
+						<h3><a href="index.html" class="float-center">LOGO.</a></h3>
+						<ul class="list-unstyled social">
+							<li><a href="#"><span class="icon-instagram"></span></a></li>
+							<li><a href="#"><span class="icon-twitter"></span></a></li>
+							<li><a href="#"><span class="icon-facebook"></span></a></li>
+							<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						</ul>
+					</div> 
+				</div> 
+			</div> 
+			<hr>
+			<div class="row mt-5">
+				<div class="col-12 text-center">
+					<p class="mb-0">Copyright</script> <a href=""></a>
+					</p>
+				</div>
+			</div> 
+		</div> 
+	</div>
+	<!-- FIN FOOTER -->
+
+		<!-- Preloader -->
+		<div id="overlayer"></div>
+		<div class="loader">
+			<div class="spinner-border text-primary" role="status">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+
+
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/tiny-slider.js"></script>
+		<script src="js/aos.js"></script>
+		<script src="js/navbar.js"></script>
+		<script src="js/counter.js"></script>
+		<script src="js/rellax.js"></script>
+		<script src="js/flatpickr.js"></script>
+		<script src="js/glightbox.min.js"></script>
+		<script src="js/custom.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="sweetalert2.all.min.js"></script> -->
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<script type="module" src="js/utils/PostContact.js"></script>
+		<script type="module" src="js/utils/sendEmail.js"></script>
+
+		<script type="module" src="js/Propiedades/mapsContact.js"></script>
+
+	</body>
+	</html>

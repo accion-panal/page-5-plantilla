@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<link rel="stylesheet" href="css/tiny-slider.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+	<link rel="stylesheet" href="css/glightbox.min.css"> 
+	<link rel="stylesheet" href="css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+	<title>Inicio</title>
+</head>
+<body>
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+	<!-- MENU NAVEGADOR -->
+	<nav class="site-nav mt-3">
+		<div class="container">
+			<div class="site-navigation">
+				<div class="row">
+					<div class="col-6 col-lg-2">
+						<a href="index.html" class="logo m-0 float-start">LOGO.</a>
+					</div>
+					<div class="col-lg-10 d-none d-lg-inline-block text-center nav-center-wrap">
+						<ul class="js-clone-nav  text-center site-menu p-0 m-0">
+							<li class="active"><a href="index.html">Inicio</a></li>
+							<li><a href="nosotros.html">¿Quiénes somos?</a></li>
+							<li><a href="propiedad.html">Propiedades</a></li>
+							<li><a href="contacto.html">Contáctanos</a></li>
+							<li><a href="http://190.114.255.247:195/">Intranet</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-lg-3 text-lg-end">
+						<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+							<span></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+	<!-- FIN MENU NAVEGADOR -->
+
+	
+	<!-- Seccion Imagen y busqueda avanzada -->
+	<div class="hero overlay">
+
+		<div class="img-bg rellax">
+			<img src="images/interiores2.jpg" alt="Image" class="img-fluid ">
+		</div>
+
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-12">
+					<div data-aos="fade-up">
+						<div class="filtro">
+							<h4 class="heading mb-5" data-aos="fade-up">Busqueda avanzada</h4>
+							<form>
+								<div class="row">
+									<div class="col-lg">
+										<div class="form-group mb-4">
+											<select class="form-select" name="operationType" id="operationType">
+												<option value="" selected>Tipo de operación</option>
+												<option value="venta">Venta</option>
+												<option value="arriendo" >Arriendo</option>
+												<option value="arriendo_temporal" >Arriendo Temporal</option>
+											</select>
+										</div>
+										<div class="form-group mb-4">
+											<select class="form-select" name="bathrooms" id="bathrooms">
+												<option value="" selected>Baño(s)</option>
+												<option value="1" >1</option>
+												<option value="2" >2</option>
+												<option value="3" >3</option>
+												<option value="4" >4</option>
+											</select>	
+
+										</div>
+										<div class="form-group mb-4">
+											<select class="form-select" name="covered_parking_lots" id="covered_parking_lots">
+												<option value="" selected>Estacionamiento(s)</option>
+												<option value="1" >1</option>
+												<option value="2" >2</option>
+												<option value="3" >3</option>
+												<option value="4" >4</option>
+											</select>
+
+										</div>
+									</div>
+									<div class="col-lg">
+										<div class="form-group mb-4">
+											<select class="form-select" name="typeOfProperty" id="typeOfProperty">
+												<option value="" selected>Tipo de propiedad</option>
+												<option value="departamento">Departamento</option>
+												<option value="casa">Casa</option>
+												<option value="parcela">Parcela</option>
+												<option value="bodega">Bodega</option>
+												<option value="terreno">Terreno</option>
+												<option value="estacionamiento">Estacionamiento</option>
+												<option value="industrial">Industrial</option>
+												<option value="agricola">Agricola</option>
+												<option value="local">Local Comercial</option>
+												<option value="oficina">Oficina</option>
+												<option value="sitio">Sitio</option>
+												<option value="Terreno En Construccion">Terreno En Construccion</option>
+											</select>
+										</div>
+										<div class="form-group mb-4">
+											<select class="form-select" name="" id="bedrooms">
+												<option value="" selected>Habitacion(s)</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+
+										</div>
+										<div class="form-group mb-4">
+											<label class="form-check-lable" style="color: #fff !important;">Precio</label>
+											<div class="position-relative" style="display: flex;justify-content: space-around;align-items:center;">
+												<label class="form-label-check" style="color: #fff;">UF</label>
+												<input type="checkbox" id="" class="form-check-input">
+												<label class="form-label-check" style="color: #fff;">CLP</label>
+												<input type="checkbox" id="" class="form-check-input">
+											</div>
+										</div>
+										<div class="form-group mb-4">
+											<div class="row">
+												<div class="col-lg">
+													<input type="number" class="form-control" placeholder="Desde" id="min_price" name="min_price"/>
+												</div>
+												<div class="col-lg">
+													<input type="number" class="form-control" placeholder="Hasta" id="max_price" name="max_price"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg">
+										<div class="form-group mb-4">
+											<select class="form-select" name="region" id="region">
+												<option value="0" selected>Región</option>
+												
+											</select>
+										</div>
+										<div class="form-group mb-4">
+											<select class="form-select" name="commune" id="commune">
+												<option value="" selected>Comuna</option>
+											
+											</select>
+										</div>
+										<div class="form-group mb-4">
+											<select class="form-select" name="surface_m2" id="surface_m2">
+												<option value="" selected>Superficie m2</option>
+												<option value="1" >1</option>
+												<option value="2" >2</option>
+												<option value="3" >3</option>
+
+											</select>								
+
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg d-flex justify-content-center" >
+										<button type="submit" class="btn btn-primary" id="buscar">
+											Buscar
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+	<!-- Fin Seccion Imagen y busqueda avanzada -->
+
+	<!-- Seccion Propiedades destactadas -->
+	<div class="section bg-light" style="padding-bottom: 1rem;padding-top: 1rem;">	
+		<div class="row mb-5">
+			<div class="col-lg-6 mx-auto text-center">
+				<div class="heading-content" data-aos="fade-up">
+					<h2>Propiedades destacadas</h2>
+					
+					<p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="propiedad.html" class="btn btn-primary">Ver Todas</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+				<div class="mb-5" data-aos="fade-up" data-aos-delay="300">
+					<div class="col-lg-12 col-md-12">
+					<section class="splide" aria-label="Splide Basic HTML Example">
+						<div class="splide__track">
+						<ul class="splide__list" id="container-props-destacadas">
+							<!-- <li class="splide__slide"></li> -->
+						
+						</ul>
+						</div>
+			
+						
+					</section>
+					</div>
+		  
+			  	</div>
+
+				<!-- <div class="item">
+					<div class="media-entry">
+						<a href="#">
+							<img src="images/casa1.jpg" alt="Image" class="img-fluid imgCasas">
+						</a>
+						<div class="bg-white m-body">
+							<span class="date">Casa-Arriendo</span>-
+							<span class="date"><b>UF 16.800</b></span>
+							<h3 class="mt-3"><a href="#">CASA AMOBLADA, EXCELENTE UBICACIÓN</a></h3>
+							<p>la Cruz, Valparaiso, Chile</p>
+							<p><b>Habitacion(es):</b> 4</p>
+							<p><b>Baños(s):</b> 4</p>
+							<p><b>Adicionla(es):</b> Piscina y calefacción</p>
+
+							<a href="single.html" class="more d-flex align-items-center float-start">
+								<span class="label">Ver Detalle</span>
+								<span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+							</a>
+						</div>
+					</div>
+				</div> -->
+
+		</div> 
+		<!-- <div class="text-center mb-2 py-5">
+			<div id="prevnext-testimonial">
+				<span class="prev me-3" data-controls="prev">
+					<span class="icon-chevron-left"></span>
+
+				</span>
+				<span class="next" data-controls="next">
+					<span class="icon-chevron-right"></span>
+
+				</span>
+			</div>
+		</div> -->
+	</div>
+	<!-- Fin Seccion Propiedades destactadas -->
+	<!-- FOOTER -->
+	<div class="site-footer" style="padding-top:3rem !important;padding-bottom: 1rem;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="widget">
+						<h3>Contáctanos</h3>
+						<address>Apoquindo 7935 Of. 410-b</address>
+						<ul class="list-unstyled links mb-4">
+							<li><a href="">+569 9130 4511</a></li>				
+							<li><a href=""> contacto@rukam.cl / dsalinas@rukam.cl</a></li>
+						</ul>
+					</div>
+				</div> 
+				<div class="col-lg-4 ml-auto">
+					<div class="widget">
+						<h3>Menú</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="nosotros.html">¿Quiénes somos?</a></li>
+							<li><a href="propiedad.html">Propiedades</a></li>
+							<li><a href="contacto.html">Contáctanos</a></li>
+							<li><a href="http://190.114.255.247:195/">Intranet</a></li>
+						</ul>
+					</div> 
+				</div> 
+				<div class="col-lg-4">
+					<div class="widget">
+						<h3><a href="index.html" class="float-center">LOGO.</a></h3>
+						<ul class="list-unstyled social">
+							<li><a href="#"><span class="icon-instagram"></span></a></li>
+							<li><a href="#"><span class="icon-twitter"></span></a></li>
+							<li><a href="#"><span class="icon-facebook"></span></a></li>
+							<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						</ul>
+					</div> 
+				</div> 
+			</div> 
+			<hr>
+			<div class="row mt-5">
+				<div class="col-12 text-center">
+					<p class="mb-0">Copyright</script><a href=""></a> 
+				</div>
+			</div> 
+		</div> 
+	</div>
+	<!-- FIN FOOTER -->
+
+
+		<!-- Preloader -->
+		<div id="overlayer"></div>
+		<div class="loader">
+			<div class="spinner-border text-primary" role="status">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/tiny-slider.js"></script>
+		<script src="js/aos.js"></script>
+		<script src="js/navbar.js"></script>
+		<script src="js/counter.js"></script>
+		<script src="js/rellax.js"></script>
+		<script src="js/flatpickr.js"></script>
+		<script src="js/glightbox.min.js"></script>
+		<script src="js/custom.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<!-- <script type="module" src="/js/utils/getValuesOfinputs.js"></script> -->
+		<!-- <script type="module" src="/js/utils/setValuesOfInputs.js"></script> -->
+
+
+		<script type="module" src="/js/destacada_prop.js"></script>
+		<script type="module" src="/js/utils/filterOnSubmitIndex.js"></script>
+		<script type="module" src="/js/utils/filterOnSubmit.js"></script>
+
+		<script type="module" src="/js/utils/getSelects.js"></script>
+
+
+		<!-- <script type="module" src="/js/utils/getValuesOfinputs.js"></script> -->
+	</body>
+	</html>
