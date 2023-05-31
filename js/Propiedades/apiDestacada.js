@@ -15,7 +15,7 @@ export default async function apiDestaCall(){
 
     document.getElementById('container-props-destacadas').innerHTML = filtrado.map(filtrado => 
         `<li class="splide__slide" >	 
-            <div class="item" >
+            <div class="item" style="padding:1rem">
                 <div class="media-entry" style="margin:0 10px 0 0;">
                     <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">
                         <img src="${filtrado.image != undefined && filtrado.image != null && filtrado.image != "" ? filtrado.image : "images/Sin.png"}" alt="Image" class="img-fluid imgCasas">
@@ -43,6 +43,14 @@ let splide = new Splide(".splide", {
     type: "loop",
     autoplay: "play",
     perPage: 3,
+    breakpoints: {
+        1399: {
+          perPage: 2,
+        },
+        900: {
+          perPage: 1,
+        }
+      }
 });
 splide.mount();
 
