@@ -94,7 +94,7 @@ indicadores += `
 							<li><a>Superficie construida: <span>${data?.surface_m2 || "0"}</span></a></li>
 							<li><a>Superficie Terreno: <span>${data?.surface_m2 || "0"}</span></a></li>
 							<li><a>Superficie Privada: <span>${data?.surface_m2 || "0"}</span></a></li>
-							<li><a>Baños: <span>${data?.bathroom || "0"}</span></a></li>
+							<li><a>Baños: <span>${data?.bathrooms || "0"}</span></a></li>
 							<li><a>Estacionamiento: <span>${data?.coveredParkingLots || "0"}</span></a></li>
 							<li><a>Piso: <span>2</span></a></li>
 							<li><a>Tipo de propiedad:<span>${data?.types || "No registra"}</span></a></li>

@@ -39,6 +39,4 @@ document.getElementById("covered_parking_lots").value = query.covered_parking_lo
 if (document.getElementById('buscar2') !== null ){
   document.getElementById('buscar2').click();
 
-}else {
-  console.log("Error en el filtro de index")
 }
