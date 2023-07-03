@@ -85,7 +85,7 @@
 				<div class="col-lg-5">
 
 					<h1 class="heading" data-aos="fade-up"> ¿Quiénes somos?</h1>
-					<p class="mb-5" data-aos="fade-up">Rukam es una empresa creada pensando en los pequeños corredores independientes, la cual su principal virtud es brindarles el servicio integral y asesoramiento a nuestro asociados para así optimizar y mejorar día a día toda su gestión, es por eso que nuestro objetivo principal es apoyar al corredor tanto es su pre-venta como en su post-venta, para que puedan llevar a cabo todos sus objetivos de manera satisfactoria
+					<p id="quienesSomos-info" class="mb-5" data-aos="fade-up"></p>
 				</div>				
 			</div>
 		</div>	
@@ -102,19 +102,8 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-11 col-md-6 col-lg-11 mb-4 mb-lg-0" data-aos="fade-up"  data-aos-delay="200">
-							<div class="service-1">
-								<span class="icon">
-									<i class='bx bx-folder-plus fs-2'></i>
-									<!-- <img src="images/svg/02.svg" alt="Image" class="img-fluid"> -->
-								</span>
-								<div>
-									<h3>Pública con nosotros.</h3>
-									<p>Más de 25 portales inmobiliarios, en nuestra página web, en redes de colaboración de finca raíz, Instagram, y Facebook. Además de hacer campañas promocionales para destacar tu inmueble</p>
-								</div>
-							</div>
-						</div>
+					<div id="services-info" class="row">
+						<!-- Style in AboutInfo.js -->
 					</div>
 				</div>
 			</div>
@@ -123,41 +112,8 @@
 
 	<div class="section service-section-2" style="padding-top: 3rem;padding-bottom: 2rem;">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-12 col-md-12 col-lg-12 mb-4 mb-lg-0" data-aos="fade-up"  data-aos-delay="100">
-							<div class="service-1">
-								<span class="icon">
-									<i class='bx bx-target-lock fs-1'></i>
-									<!-- <img src="images/svg/01.svg" alt="Image" class="img-fluid"> -->
-								</span>
-								<div>
-									<h3>Misión</h3>
-									<p>Nuestra misión se basa en elevar la capacidad de consultas y cierre de negocio de nuestros asociados, así como también brindarles una excelente experiencia y post-venta durante su estadía con nuestros servicios.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-12 col-md-12 col-lg-12 mb-4 mb-lg-0" data-aos="fade-up"  data-aos-delay="100">
-							<div class="service-1">
-								<span class="icon">
-									<i class='bx bx-show fs-1'></i>
-
-									<!-- <img src="images/svg/01.svg" alt="Image" class="img-fluid"> -->
-								</span>
-								<div>
-									<h3>Visión</h3>
-									<p>Convertirnos en unos de los mejores servicios de publicación de propiedades a través de un integrador para de esta manera facilitarle un poco el trabajo día a día a nuestros asociados y asi también ayudarlos a que lleguen a más personas para posterior a eso capitalicen sus propiedades.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+			<div id="purpose-info" class="row">
+				<!-- Style in AboutInfo.js -->
 			</div>
 		</div>
 	</div>
@@ -170,7 +126,7 @@
 	
 				<div class="row">
 					<div class="col-lg-4">
-						<div class="widget">
+						<div id="contact-footer" class="widget">
 							<h3>Contáctanos</h3>
 							<address>Apoquindo 7935 Of. 410-b</address>
 							<ul class="list-unstyled links mb-4">
@@ -194,7 +150,7 @@
 					<div class="col-lg-4">
 						<div class="widget">
 							<h3><a href="index.html" class="float-center">LOGO</a></h3>
-							<ul class="list-unstyled social">
+							<ul id="social-footer" class="list-unstyled social">
 								<li><a href="#"><span class="icon-instagram"></span></a></li>
 								<li><a href="#"><span class="icon-twitter"></span></a></li>
 								<li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -232,5 +188,8 @@
 		<script src="js/flatpickr.js"></script>
 		<script src="js/glightbox.min.js"></script>
 		<script src="js/custom.js"></script>
+
+		<script type="module" src="js/Data/AboutInfo.js"></script>
+		<script type="module" src="js/Data/FooterInfo.js"></script>
 	</body>
 	</html>
