@@ -136,15 +136,11 @@
 			<div class="row">
 				<div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
 					<div class="contact-info">
-						<div class="email ">
-							<i class="icon-envelope"></i>
-							<h4 class="mb-2">E-mail:</h4>
-							<p>contacto@rukam.cl / dsalinas@rukam.cl</p>
+						<div id="email-info" class="email ">
+							<!-- Style in ContactInfo.js -->
 						</div> 
-						<div class="phone mt-5">
-							<i class="icon-phone"></i>
-							<h4 class="mb-2">Llamar:</h4>
-							<p>+569 9130 4511</p>
+						<div id="phone-info" class="phone mt-5">
+							<!-- Style in ContactInfo.js -->
 						</div>
 					</div>
 				</div>
@@ -153,18 +149,12 @@
 						<div class="open-hours">
 							<i class="icon-clock-o"></i>
 							<h4 class="mb-2">Horarios:</h4>
-							<div class="d-flex">
-								<p>
-									<b>Lunes a Viernes</b> <br>
-									8:30 AM - 18:00 PM
-								</p>
-								<br>
+							<div id="horario-info" class="d-flex">
+								<!-- Style in ContactInfo.js -->
 							</div>
 						</div>
-						<div class="address mt-4">
-							<i class="icon-room"></i>
-							<h4 class="mb-2">Ubicación:</h4>
-							<p>Apoquindo 7935 Of. 410-b</p>
+						<div id="ubicacion-info" class="address mt-4">
+							<!-- Style in ContactInfo.js -->
 						</div>
 					</div>
 					
@@ -183,7 +173,7 @@
 
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="widget">
+					<div id="contact-footer" class="widget">
 						<h3>Contáctanos</h3>
 						<address>Apoquindo 7935 Of. 410-b</address>
 						<ul class="list-unstyled links mb-4">
@@ -207,7 +197,7 @@
 				<div class="col-lg-4">
 					<div class="widget">
 						<h3><a href="index.html" class="float-center">LOGO.</a></h3>
-						<ul class="list-unstyled social">
+						<ul id="social-footer" class="list-unstyled social">
 							<li><a href="#"><span class="icon-instagram"></span></a></li>
 							<li><a href="#"><span class="icon-twitter"></span></a></li>
 							<li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -254,6 +244,8 @@
 		<script type="module" src="js/utils/sendEmail.js"></script>
 
 		<script type="module" src="js/Propiedades/mapsContact.js"></script>
+		<script type="module" src="js/Data/ContactInfo.js"></script>
+		<script type="module" src="js/Data/FooterInfo.js"></script>
 
 	</body>
 	</html>
