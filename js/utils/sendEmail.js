@@ -1,8 +1,12 @@
+import { RealtorSendEmailData } from '../Data/userId.js';
+
 const formEmail = document.getElementById('form-contact');
 
 
 formEmail.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    let realtorMail = RealtorSendEmailData.sendEmail;
 
 
 let firstName = document.getElementById('nombre');
@@ -11,8 +15,12 @@ let subject = document.getElementById('asunto');
 let phone = document.getElementById('phone');
 let message = document.getElementById('mensaje');
 
+if(subject.value===''|| message.value==='' || firstName.value==='' || email.value==='' || phone.value===''){
+  return;
+}
 
-fetch("https://formsubmit.co/ajax/contacto@rukam.cl", {
+
+fetch(`https://formsubmit.co/ajax/${realtorMail}`, {
   method: "POST",
   headers: { 
       'Content-Type': 'application/json',
