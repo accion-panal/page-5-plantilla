@@ -13,6 +13,13 @@ export default async function apiDestaCall(){
     const ufValue = response?.UFs[0]?.Valor
     const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
 
+    //todo: Modificar url de image
+    data = data.map(item => {
+        // Reemplazar "\\" por "//" en la propiedad "image"
+        item.image = item.image.replace(/\\/g, "//");
+        return item;
+    });
+
     document.getElementById('container-props-destacadas').innerHTML = filtrado.map(filtrado => 
         `<li class="splide__slide" >	 
             <div class="item" style="padding:1rem">
