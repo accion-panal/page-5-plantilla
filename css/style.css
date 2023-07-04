@@ -4508,6 +4508,11 @@ fieldset:disabled .btn {
   display: block;
 }
 
+.initialMap {
+  height: 0 !important;
+  overflow: hidden;
+}
+
 .navbar {
   position: relative;
   display: -webkit-box;
@@ -13985,7 +13990,7 @@ textarea {
 
 #map {
   width: 100% !important;
-  height: 45vh !important;
+  height: 400px !important;
   border-radius: 5px !important;
 
 }
