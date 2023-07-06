@@ -4,7 +4,7 @@ import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
 
 import { parseToCLPCurrency, clpToUf, validationUF,validationCLP, ufToClp } from "../utils/getExchangeRate.js"
 
-import { PropertyData } from "../Data/userId.js";
+import { PropertyData, limitDataApi } from "../Data/userId.js";
 
 
 
@@ -12,7 +12,7 @@ import { PropertyData } from "../Data/userId.js";
 export default async function apiDestaCall(){
     const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
 
-    let {data} = await getProperties(0,1,1);
+    let {data} = await getProperties(1, limitDataApi.limit, CodigoUsuarioMaestro, 1, companyId, realtorId);;
     
 
     const response = await ExchangeRateServices.getExchangeRateUF();
@@ -44,14 +44,14 @@ export default async function apiDestaCall(){
                     <div class="bg-white m-body">
                         <span class="date">${filtrado.operation}</span> -
                         <span class="date"><b>UF ${validationUF(filtrado.currency.isoCode) ? filtrado.price : clpToUf(filtrado.price, ufValueAsNumber)}, ${validationCLP(filtrado.currency.isoCode) ? parseToCLPCurrency(filtrado?.price): parseToCLPCurrency(ufToClp(filtrado.price, ufValueAsInt))}</b></span>
-                        <h3 class="mt-3"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">${filtrado.title}</a></h3>
+                        <h3 class="mt-3"><a href="/detalle_propiedad.html?${filtrado.id}&statusId=${1}&companyId=${1}">${filtrado.title}</a></h3>
                         <p>${filtrado.address != undefined && filtrado.address != null && filtrado.address != "" ? filtrado.address : "Sin registro Dirección" }, ${filtrado.commune != undefined && filtrado.commune != null && filtrado.commune != "" ? filtrado.commune : "Sin registro de Comuna "},${filtrado.city != undefined && filtrado.city != null && filtrado.city != "" ? filtrado.city : "Sin registro de Ciudad "}, Chile</p>
                         <p><b>COD:</b> ${filtrado.id}</p>
                         <p><b>Habitacion(es):</b> ${filtrado.bedrooms != undefined && filtrado.bedrooms != null && filtrado.bedrooms != "" ? filtrado.bedrooms : "0"}</p>
                         <p><b>Baños(s):</b> ${filtrado.bathrooms != undefined && filtrado.bathrooms != null && filtrado.bathrooms != "" ? filtrado.bathrooms : "0"}</p>
                         <p><b>Estacionamiento(s):</b> ${filtrado.coveredParkinLost != undefined && filtrado.coveredParkinLost != null && filtrado.coveredParkinLost != "" ? filtrado.coveredParkinLost : "0"}</p>
 
-                        <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}" class="more d-flex align-items-center float-start">
+                        <a href="/detalle_propiedad.html?${filtrado.id}&statusId=${1}&companyId=${companyId}" class="more d-flex align-items-center float-start">
                             <span class="label">Ver Detalle</span>
                             <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                         </a>

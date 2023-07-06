@@ -2,11 +2,11 @@ import { getProperties } from "../services/PropertiesServices.js";
 
 import ExchangeRateServices from "../services/ExchangeRateServices.js";
 
-import { parseToCLPCurrency, clpToUf,validationUF } from "../utils/getExchangeRate.js";
+import { parseToCLPCurrency, clpToUf, validationUF,validationCLP, ufToClp } from "../utils/getExchangeRate.js";
 
 import { PropertyData, limitDataApi } from "../Data/userId.js";
 import paginationCall from "../utils/pagination.js";
-import apiCallMap from "../propiedad/apiMapProp.js";
+import apiCallMap from "../Propiedades/apiMapProp.js";
 
 export default async function renderCall() {
     //* INICIALIZACION DE VARIABLES
@@ -46,6 +46,11 @@ export default async function renderCall() {
     const response2 = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response2?.UFs[0]?.Valor;
     const ufValueAsNumber = parseFloat(ufValue.replace(",", "."));
+
+    //! transformar valor del uf a int
+	const cleanedValue = ufValue.replace(/\./g, '').replace(',', '.');
+	const ufValueAsInt = parseFloat(cleanedValue).toFixed(0);
+	//!--
 
     //todo: Filtros Extras
     const filtroSelect = document.getElementById('FilterPrice');
@@ -101,7 +106,7 @@ export default async function renderCall() {
                         </a>
                         <div class="bg-white m-body">
                             <span class="date" >${data.operation}</span> -
-                            <span class="date"><b>UF ${clpToUf(data.price, ufValueAsNumber)} , ${parseToCLPCurrency(data?.price)}</b></span>
+                            <span class="date"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}, ${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price): parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))}</b></span>
                             <h3 class="mt-3 textLimitClass"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">${data.title}</a></h3>
                             <p>${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
                             <p><b>Habitacion(es):</b> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}</p>
@@ -133,7 +138,7 @@ export default async function renderCall() {
                             <div class="col-8">
                             <div class="bg-white m-body">
                                 <span class="date">${data.operation}</span>-
-                                <span class="date"><b>UF ${clpToUf(data.price, ufValueAsNumber)}, $${data.price} </b></span>
+                                <span class="date"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}, ${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price): parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))} </b></span>
                                 <h3 class="mt-3"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${1}">${data.title}</a></h3>
                                 <p>${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
                                 <p><b>Habitacion(es):</b> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0" }</p>
