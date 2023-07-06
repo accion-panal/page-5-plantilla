@@ -3,32 +3,24 @@ import { getPropertiesForId } from "../services/PropertiesServices.js";
 
 import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
 
-import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js"
+import { parseToCLPCurrency, clpToUf, validationUF,validationCLP, ufToClp } from "../utils/getExchangeRate.js"
 
 export default async function apiDetalleCall(id,statusId, companyId) {
-let {data} = await getPropertiesForId(id, statusId, companyId);
+	let {data} = await getPropertiesForId(id, statusId, companyId);
+	console.log(data)
 
-const response = await ExchangeRateServices.getExchangeRateUF();
-const ufValue = response?.UFs[0]?.Valor
-const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
+	const response = await ExchangeRateServices.getExchangeRateUF();
+	const ufValue = response?.UFs[0]?.Valor
+	const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
 
+	//! transformar valor del uf a int
+	const cleanedValue = ufValue.replace(/\./g, '').replace(',', '.');
+	const ufValueAsInt = parseFloat(cleanedValue).toFixed(0);
+	//!--
 
-let indicadores;
-let imagenes;
-
-data.images.forEach((images, index) => {imagenes +=
-`<div class="carousel-item ${ index == 0 ? "active" : "" }">
-	<img src="${images != undefined && images != null && images != "" ? images : "images/Sin.png"}" class="d-block imgCarrucel" alt="">						
-</div>  	
-`
-indicadores += `
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" ${index == 0 ? "class = active": ""} aria-current="true" aria-label="${index + 1}"></button>
-`
-}
-
-)
-
-
+	let updatedImages = data.images.map(function (image) {
+		return image.replace(/\\/g, "//");
+	});
 
 	document.getElementById('detail-prop').innerHTML =
     `<div class="section" style="padding-top: 1rem;padding-bottom: 0rem;">
@@ -41,8 +33,8 @@ indicadores += `
 				</div>
 				<div class="col-4 d-flex justify-content-end">
 					<div class="text-center">
-						<h1 id="valueUf"><b>UF ${clpToUf(data?.price, ufValueAsNumber )}</b></h1>
-						<span style="font-size: 29px;">${parseToCLPCurrency(data?.price)}</span><br>
+						<h1 id="valueUf"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</b></h1>
+						<span style="font-size: 29px;">${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price): parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))}</span><br>
 					</div>
 				</div>
 			</div>
@@ -50,28 +42,40 @@ indicadores += `
 				<div class="container" >
 					<div class="row">
 						<div class="col">											
-						<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-indicators">
-						${indicadores != undefined && indicadores != null ? indicadores : "no registra imagenes"}
+							<section class="splide" aria-label="Splide Basic HTML Example">
+								<div class="splide__track">
+									<ul class="splide__list" id="carrucel-img">
+									</ul>
+								</div>
+							</section>
 						</div>
-						<div class="carousel-inner">
-						${imagenes}									
-						</div>	
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="visually-hidden">Next</span>
-						</button>
-					  </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>`
+	</div>`;
+
+	//! Imagenes en splide */
+	let img = '';
+	updatedImages.forEach((image, index) => {
+		img += `
+			<li class="splide__slide ${index === 0 ? 'active' : ''}">
+				<img src="${image || 'img/Sin.png'}" style="height: 600px; width: 100%;" />
+			</li>
+		`;
+	});
+	document.getElementById('carrucel-img').innerHTML = img;
+
+	let splide = new Splide('.splide', {
+		type: 'fade',
+		padding: '5rem',
+		rewind: true,
+		autoplay: 'play',
+	});
+
+	splide.mount();
+
 	document.getElementById('descrip-prop').innerHTML= `
 				<div class="col-md-12 blog-content ">
 					<p class="lead">DESCRIPCIÓN</p>
@@ -81,7 +85,7 @@ indicadores += `
 	document.getElementById('caract-prop').innerHTML = `
 					<p class="lead">REQUISITOS</p>
 					<p>-Acreditar renta 3 veces al valor arriendo</p>
-					<p>-Contrato dde trabajo vigente</p>
+					<p>-Contrato de trabajo vigente</p>
 					<p>-Informe Dicom Platinium</p>
 					<div class="sidebar-box" style="padding: 0px;">
 						<div class="categories">

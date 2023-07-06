@@ -33,6 +33,8 @@
 	<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
 	<!--FIN MAPBOX CSS -->
 
+	<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
 	<title>Detalle Propiedad</title>
 </head>
 <body>
@@ -84,7 +86,30 @@
 	</div>
 </div>
 <div id="detail-prop">
-
+	<div class="section" style="padding-top: 1rem;padding-bottom: 0rem;">
+		<div class="container">
+			<div class="row mb-2">
+				<div class="col-8">
+					<h1><b>Buscando Propiedad...</b></h1>
+				</div>
+			</div>
+			<div class="section" style="padding-top:2rem; padding-bottom:2rem">
+				<div class="container" >
+					<div class="row">
+						<div class="col">											
+							<section class="splide" aria-label="Splide Basic HTML Example">
+								<div class="splide__track">
+									<ul class="splide__list" id="carrucel-img">
+									</ul>
+								</div>
+							</section>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="section" style="padding-top:2rem; padding-bottom: 1rem;" >
 	<div class="container">
@@ -97,7 +122,8 @@
 				</div>
 				 <div class="col-md-4 sidebar" id="form-detalle">
 					 	<div class="sidebar-box text-center" id="data-realtor">
-					
+							<img src="images/Sin.png" class="img-fluid imgCorredor mb-3">
+							<h3 class="text-black">Buscando Corredor...</h3>
 						</div>
 						<div class="comment-form-wrap" >
 							<h3 class="mb-3 text-center">Contactar al corredor</h3>
@@ -220,7 +246,7 @@
 
 		<script type="module" src="js/Data/FooterInfo.js"></script>
 
-
+		<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
 		<!-- <script type="module" src="/js/services/ExchangeRateServices.js"></script>  -->
 
