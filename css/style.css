@@ -4508,6 +4508,10 @@ fieldset:disabled .btn {
   display: block;
 }
 
+.activeBlock {
+  display: block !important;
+}
+
 .initialMap {
   height: 0 !important;
   overflow: hidden;

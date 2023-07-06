@@ -1,7 +1,8 @@
 import { getProperties} from "../services/PropertiesServices.js";
-
+import { PropertyData, limitDataApi } from "../Data/userId.js";
 
 export default async function apiCallMap() {
+    const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
 
     document.getElementById(
 		"map"
@@ -21,7 +22,37 @@ export default async function apiCallMap() {
         
     });
 
-    let {data} = await getProperties(0,1,1);
+    let data;
+    let response;
+
+    //* Rescatar datos del globalResponse
+    //! si hay informacion, entra al if, de lo contrario al else
+    let storedGlobalResponse = localStorage.getItem('globalResponse');
+    if (storedGlobalResponse && storedGlobalResponse.length>0) {
+        response = JSON.parse(storedGlobalResponse);
+        let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+        localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+        /* localStorage.setItem('countPage', JSON.stringify(1)); */
+
+        data = response.data;
+    } 
+    else {
+        //* el segundo digito es el limit
+        response = await getProperties(1, limitDataApi.limit, CodigoUsuarioMaestro, 1, companyId, realtorId);
+        //* Guardar el response en el localStorage
+        localStorage.setItem('globalResponse', JSON.stringify(response));
+
+        let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+        localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+        console.log('max-page: ',maxPage);
+        localStorage.setItem('countPage', JSON.stringify(1));
+        paginationCall();
+
+        data = response.data;
+    }
+
+
+    console.log('data en map: ',data);
     const promiseMap = new Promise(
         (resolve)=>{
         data.map(data => {    

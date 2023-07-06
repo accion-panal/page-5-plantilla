@@ -215,10 +215,10 @@
 							<span>Ordena por: </span>
 						</div>
 						<div class="col-9 col-lg-9">
-							<select id="" name="" class="form-select">
-								<option value="0" selected>Relevancia</option>
-								<option value="1">Mayor a menor</option>
-								<option value="2">Menor a mayor</option>
+							<select id="FilterPrice" name="" class="form-select">
+								<option disabled selected>Seleccione una opción</option>
+								<option value="MayorMenor">Mayor a menor</option>
+								<option value="MenorMayor">Menor a mayor</option>
 							</select>
 						</div>
 					</div>
@@ -258,7 +258,10 @@
 						<div id="map"></div>
 					</div>
 				</div>
-			  </div>
+			</div>
+			<div id="pagination-col">
+
+			</div>
 
 		</div>
 	</div>
@@ -342,13 +345,13 @@
 
 
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<script type="module" src="/js/Propiedades/api.js"></script>
-		<script type="module" src="/js/mapProp.js"></script>
+		<!-- <script type="module" src="/js/Propiedades/api.js"></script> -->
+		<!-- <script type="module" src="/js/mapProp.js"></script> -->
 		<script type="module" src="/js/index.js"></script>
 
 
-		<script type="module" src="/js/utils/filterOnSubmit.js"></script>
-		<script type="module" src="/js/utils/filterOnSubmitIndex.js"></script>
+		<!-- <script type="module" src="/js/utils/filterOnSubmit.js"></script>
+		<script type="module" src="/js/utils/filterOnSubmitIndex.js"></script> -->
 		<script type="module" src="/js/utils/getSelects.js"></script>
 
 		<script type="module" src="js/Data/FooterInfo.js"></script>
