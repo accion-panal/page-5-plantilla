@@ -14148,3 +14148,31 @@ textarea {
 .textLimitClass:hover{
   display: block !important;
 }
+
+.container-divisas{
+  display: flex;
+  justify-content: end;
+}
+.uf-clp-divisas h1 > span{
+  display: flex;
+  justify-content: end;
+  text-align: end;
+}
+@media only screen and (max-width:991px){
+
+  .container-divisas{
+    display: flex;
+    justify-content: start;
+    margin-top: 1rem;
+  }
+
+}
+
+@media only screen and (max-width:575px){
+
+  .removePadding{
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+
+}
