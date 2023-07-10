@@ -26,22 +26,22 @@ export default async function apiDetalleCall(id,statusId, companyId) {
     `<div class="section" style="padding-top: 1rem;padding-bottom: 0rem;">
 		<div class="container">
 			<div class="row mb-2">
-				<div class="col-8">
+				<div class="col-sm-12 col-lg-8 mb-3">
 					<h1><b>${data.title}</b></h1>
 					<span>Cod: ${data.id}</span><br>
 					<span><i class='bx bx-map'></i> ${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</span>
 				</div>
-				<div class="col-4 d-flex justify-content-end">
-					<div class="text-center">
+				<div class="col-sm-12 col-lg-4 container-divisas">
+					<div class="uf-clp-divisas">
 						<h1 id="valueUf"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</b></h1>
 						<span style="font-size: 29px;">${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price): parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))}</span><br>
 					</div>
 				</div>
 			</div>
-			<div class="section" style="padding-top:2rem; padding-bottom:2rem">
-				<div class="container" >
+			<div class="section removePadding" style="padding-top:2rem; padding-bottom:2rem">
+				<div class="container removePadding" >
 					<div class="row">
-						<div class="col">											
+						<div class="col removePadding">											
 							<section class="splide" aria-label="Splide Basic HTML Example">
 								<div class="splide__track">
 									<ul class="splide__list" id="carrucel-img">
@@ -72,6 +72,11 @@ export default async function apiDetalleCall(id,statusId, companyId) {
 		padding: '5rem',
 		rewind: true,
 		autoplay: 'play',
+		breakpoints: {
+			1399: {
+				padding: '0rem',
+			}
+		  }
 	});
 
 	splide.mount();
