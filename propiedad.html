@@ -88,7 +88,7 @@
 					<div data-aos="fade-up">
 						<div class="filtro">
 							<h4 class="heading mb-5" data-aos="fade-up">Busqueda avanzada</h4>
-							<form >
+							<div >
 								<div class="row">
 									<div class="col-lg">
 										<div class="form-group mb-4">
@@ -124,16 +124,6 @@
 												<option value="" selected>Tipo de propiedad</option>
 												<option value="departamento">Departamento</option>
 												<option value="casa">Casa</option>
-												<option value="parcela">Parcela</option>
-												<option value="bodega">Bodega</option>
-												<option value="terreno">Terreno</option>
-												<option value="estacionamiento">Estacionamiento</option>
-												<option value="industrial">Industrial</option>
-												<option value="agricola">Agricola</option>
-												<option value="local">Local Comercial</option>
-												<option value="oficina">Oficina</option>
-												<option value="sitio">Sitio</option>
-												<option value="Terreno En Construccion">Terreno En Construccion</option>
 											</select>
 										</div>
 										<div class="form-group mb-4">
@@ -149,31 +139,31 @@
 											<label class="form-check-lable" style="color: #fff !important;">Precio</label>
 											<div class="position-relative" style="display: flex;justify-content: space-around;align-items:center;">
 												<label class="form-label-check" style="color: #fff;">UF</label>
-												<input type="checkbox" id="" class="form-check-input">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="UF">
 												<label class="form-label-check" style="color: #fff;">CLP</label>
-												<input type="checkbox" id="" class="form-check-input">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="CLP">
 											</div>
 										</div>
 										<div class="form-group mb-4">
 											<div class="row">
 												<div class="col-lg">
-													<input type="number" class="form-control" placeholder="Desde" id="min_price" name="min_price"/>
+													<input type="number" class="form-control" min="0" pattern="^[0-9]+" name="desde" id="min_price" placeholder="Desde"/>
 												</div>
 												<div class="col-lg">
-													<input type="number" class="form-control" placeholder="Hasta" id="max_price" name="max_price"/>
+													<input type="number" class="form-control" min="0" pattern="^[0-9]+" name="hasta" id="max_price" placeholder="Hasta"/>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="col-lg">
 										<div class="form-group mb-4">
-											<select class="form-select" name="region" id="region" >
+											<select class="form-select" name="regionTextId" id="regionTextId" >
 												<option value="0" selected>Región</option>
 												
 											</select>
 										</div>
 										<div class="form-group mb-4">
-											<select class="form-select" name="commune" id="commune">
+											<select class="form-select" name="communeTextId" id="communeTextId">
 												<option value="" selected>Comuna</option>
 											</select>
 										</div>
@@ -195,7 +185,7 @@
 										</button>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -352,6 +342,7 @@
 
 		<!-- <script type="module" src="/js/utils/filterOnSubmit.js"></script>
 		<script type="module" src="/js/utils/filterOnSubmitIndex.js"></script> -->
+		<script type="module" src="/js/utils/filterOnSearch.js"></script>
 		<script type="module" src="/js/utils/getSelects.js"></script>
 
 		<script type="module" src="js/Data/FooterInfo.js"></script>

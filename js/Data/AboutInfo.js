@@ -1,6 +1,7 @@
 import { AboutInformation } from '../Data/userId.js';
 
 const loadInformation = () => {
+    localStorage.removeItem('globalQuery');
     let quienesSomos = document.getElementById('quienesSomos-info');
     if (quienesSomos !== null) {quienesSomos.innerHTML = `${AboutInformation.quienesSomos}`;}
 
