@@ -13996,7 +13996,7 @@ textarea {
   width: 100% !important;
   height: 400px !important;
   border-radius: 5px !important;
-
+  margin-bottom: 1rem;
 }
 
 .hero-slider-wrap .tns-controls {
