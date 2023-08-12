@@ -81,6 +81,56 @@ export default async function renderCall() {
         showItems();
     }
 
+    //Todo: Set loading
+    function setContainerLoading(isLoading){
+        let spinner = `<div class="spinner-border" role="status" style="margin: 10px 0;"><span class="visually-hidden">Loading...</span></div>`;
+
+        if(isLoading == true){
+            let containerGrid = document.getElementById('container-prop-card');
+            if (containerGrid !== null) {
+                document.getElementById("container-prop-card").innerHTML = spinner
+            }
+            let containerList = document.getElementById('container-prop-list');
+            if (containerList !== null) {
+                document.getElementById("container-prop-list").innerHTML = spinner
+            }
+        }
+    }
+
+    //todo: Cantidad de limite en las propiedades
+    const filtroLimit = document.getElementById('FilterLimit');
+    filtroLimit.addEventListener('change', handleLimitChange);
+    async function handleLimitChange() {
+        setContainerLoading(true);
+        try {
+            //* el segundo digito es el limit
+            response = await getProperties(1, filtroLimit.value, CodigoUsuarioMaestro, 1, companyId, realtorId);
+
+            //* setear variables
+            let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+            //* Guardar vaariables en el localStorage
+            localStorage.setItem('globalResponse', JSON.stringify(response));
+            localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+            localStorage.setItem('countPage', JSON.stringify(1));
+            localStorage.setItem('LimitProperties', filtroLimit.value);
+            
+            //* Actualizar variables
+            data = response.data;
+            //* llamar funciones para actualizar visualmente.
+            data = data.map(item => {
+                // Reemplazar "\\" por "//" en la propiedad "image"
+                item.image = item.image.replace(/\\/g, "//");
+                return item;
+            });
+            
+            paginationCall();
+            showItems();
+        } catch (error) {
+            console.error('Error in handleLimitChange:', error);
+        }
+        
+    }
+
     //todo: Modificar url de image
     data = data.map(item => {
         // Reemplazar "\\" por "//" en la propiedad "image"
