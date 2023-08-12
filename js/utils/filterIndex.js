@@ -21,7 +21,8 @@ let query = {
   bathrooms: null,
   bedrooms: null,
   covered_parking_lots: null,
-  typePrice: null
+  typePrice: null,
+  surface_m2:null
 }
 
 let aux = new URLSearchParams(window.location.search);
@@ -109,6 +110,18 @@ document.getElementById("max_price").addEventListener("change", (element) => {
   console.log('max_price: ',element.target.value)
 })
 
+//! Superficie_m2
+document.getElementById("Superficie_m2").addEventListener("change", (element) => {
+  if(element.target.value>0){
+    console.log('Superficie_m2: ',element.target.value)
+    query.surface_m2 = element.target.value;
+  }
+  else{
+    document.getElementById("Superficie_m2").value = '';
+    query.surface_m2 = null;
+  }
+  
+})
 
 document.getElementById("buscar")?.addEventListener("click", async (event) => {
   event.preventDefault();

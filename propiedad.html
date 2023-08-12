@@ -168,13 +168,7 @@
 											</select>
 										</div>
 										<div class="form-group mb-4">
-											<select class="form-select" name="surface_m2" id="surface_m2">
-												<option value="" selected>surface_m2</option>
-												<option value="1" >1</option>
-												<option value="2" >2</option>
-												<option value="3" >3</option>
-
-											</select>
+											<input type="number" class="form-control" min="0" pattern="^[0-9]+" name="Superficie_m2" id="Superficie_m2"/>
 										</div>
 									</div>
 								</div>
@@ -196,19 +190,34 @@
 	<div class="section" style="padding-top: 2rem !important; padding-bottom: 0rem !important;">
 		<div class="container">
 			<div class="row align-items-stretch" >
-				<div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mt-3" data-aos="fade-up" data-aos-delay="100"  >
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mt-3" data-aos="fade-up" data-aos-delay="100"  >
 					<span class="" id="total-prop"></span>
 				</div>
-				<div class="col-12 col-sm-6 col-md-6 col-lg-5 mb-4 " data-aos="fade-up" data-aos-delay="100">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 " data-aos="fade-up" data-aos-delay="100">
 					<div class="row ">
-						<div class="col-3 col-lg-3 mt-3">
+						<div class="col-4 col-lg-4 mt-3">
 							<span>Ordena por: </span>
 						</div>
-						<div class="col-9 col-lg-9">
+						<div class="col-8 col-lg-7">
 							<select id="FilterPrice" name="" class="form-select">
 								<option disabled selected>Seleccione una opción</option>
 								<option value="MayorMenor">Mayor a menor</option>
 								<option value="MenorMayor">Menor a mayor</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 " data-aos="fade-up" data-aos-delay="100">
+					<div class="row " style="text-align: end;">
+						<div class="col-4 col-lg-7 mt-3">
+							<span>Cant. Propiedades: </span>
+						</div>
+						<div class="col-8 col-lg-5">
+							<select id="FilterLimit" name="" class="form-select">
+								<option value="3">3</option>
+								<option value="6" selected>6</option>
+								<option value="9">9</option>
 							</select>
 						</div>
 					</div>
@@ -234,13 +243,13 @@
 		<div class="container">
 			<div class="tab-content " id="pills-tabContent">
 				<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-					 <div class="row align-items-stretch" id="container-prop-card">
-
+					 <div class="row align-items-stretch" id="container-prop-card" style="justify-content: center;">
+							<div class="spinner-border" role="status" style="margin: 10px 0;"><span class="visually-hidden">Loading...</span></div>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-					<div class="row align-items-stretch" id="container-prop-list">
-
+					<div class="row align-items-stretch" id="container-prop-list" style="justify-content: center;">
+							<div class="spinner-border" role="status" style="margin: 10px 0;"><span class="visually-hidden">Loading...</span></div>
 					</div>
 				</div>
 				<div class="tab-pane fade initialMap active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">

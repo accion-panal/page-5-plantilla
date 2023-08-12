@@ -18,6 +18,7 @@ let parkingLots;
 let typePrice;
 let minPrice;
 let maxPrice;
+let surface_m2;
 
 
 
@@ -48,6 +49,10 @@ if (storedGlobalQuery) {
     if(globalQuery.min_price != null){
         document.getElementById("min_price").value = globalQuery.min_price;
         minPrice = globalQuery.min_price;
+    }
+    if(globalQuery.surface_m2 != null){
+        document.getElementById("Superficie_m2").value = globalQuery.surface_m2;
+        surface_m2 = globalQuery.surface_m2;
     }
     if(globalQuery.operationType != null){
         document.getElementById("operationType").value = globalQuery.operationType;
@@ -156,6 +161,11 @@ document.getElementById("max_price").addEventListener( "change", (element) => {
     maxPrice= element.target.value;
 })
 
+//! Superficie
+document.getElementById("Superficie_m2").addEventListener( "change", (element) => {
+    surface_m2= element.target.value;
+})
+
 
 function disabledButton(){
     let buttonSearch = document.getElementById('buscar2');
@@ -192,6 +202,7 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
     parkingLots = (parkingLots !== undefined && parkingLots !== '') ? '&covered_parking_lots=' + parkingLots : '';
     minPrice = (minPrice !== undefined && minPrice !== '') ? '&min_price=' + minPrice : '';
     maxPrice = (maxPrice !== undefined && maxPrice !== '') ? '&max_price=' + maxPrice : '';
+    surface_m2 = (surface_m2 !== undefined && surface_m2 !== '') ? '&surface_m2=' + surface_m2 : '';
 
     //! TypePrice
     typePrice = (typePrice !== undefined && typePrice !== '') ? '&typePrice=' + typePrice : '';
@@ -208,13 +219,22 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
     console.log('typePrice ',typePrice); //tipo de price
     console.log('minPrice ',minPrice); //precio minimo
     console.log('maxPrice ',maxPrice); //precio maximo
+    console.log('surface_m2 ',surface_m2); //Superficie m2
 
+
+    //* Rescatar limit 
+    let limitProp = limitDataApi.limit;
+
+    let storedLimitProperties = localStorage.getItem('LimitProperties');
+    if (storedLimitProperties) {
+        limitProp = storedLimitProperties;
+    }
 
     //* Generar url
-    let urlFilters = operation+typeOfProperty+nameRegion+commune+bedrooms+bathrooms+parkingLots+minPrice+maxPrice;
+    let urlFilters = operation+typeOfProperty+nameRegion+commune+bedrooms+bathrooms+parkingLots+minPrice+maxPrice+surface_m2;
     console.log(urlFilters);
     //* Hacer peticion a la api     | el segundo digito es el limit
-    let response = await getPropertiesForCustomUrl(1,limitDataApi.limit,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
+    let response = await getPropertiesForCustomUrl(1,limitProp,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
     console.log(response);
     //* Guardar el response en el globalResponse
     localStorage.setItem('globalResponse', JSON.stringify(response));
@@ -245,6 +265,7 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
     parkingLots = parkingLots.replace('&covered_parking_lots=', '');
     minPrice = minPrice.replace('&min_price=', '');
     maxPrice = maxPrice.replace('&max_price=', '');
+    surface_m2 = surface_m2.replace('&surface_m2=', '');
 
     //* quitar spinner loading
     document.getElementById("buscar2").innerHTML = `Buscar`;

@@ -4,12 +4,6 @@ import { PropertyData, limitDataApi } from "../Data/userId.js";
 export default async function apiCallMap() {
     const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
 
-    document.getElementById(
-		"map"
-	).innerHTML = `    	<div class="spinner-border" role="status">
-		<span class="visually-hidden">Loading...</span>
-	</div>`;
-
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2VyZ2lvdmVyYWhlcm5hbmRlemJpZGF0YSIsImEiOiJjbDMwZHc4cmswMDdqM2NydmIzYWF0cGl4In0.hsYQFPebleAB4j6mRckMzQ'
     const map = new mapboxgl.Map({
         
