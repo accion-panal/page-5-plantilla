@@ -14140,13 +14140,17 @@ textarea {
 }
 .textLimitClass{
   display: -webkit-box !important;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;  
   overflow: hidden;
+  height: 40px;
+  transition: height 1s ease  !important;
+
 }
 
 .textLimitClass:hover{
   display: block !important;
+  height: 70px;
 }
 
 .container-divisas{
