@@ -1,7 +1,9 @@
 export const PropertyData = {CodigoUsuarioMaestro: 0, companyId: 1, realtorId:0};
 
-
-export const limitDataApi = { limit:6 };
+/* El limit es para la vista grid/list de propiedades */
+/* Debe tener un valor de 3, 6, 9. solamente uno de esos 3*/
+/* LimitMap es para el limite de la vista map de propiedades */
+export const limitDataApi = { limit:6, limitMap: 99 };
 
 
 export const RealtorSendEmailData = {
