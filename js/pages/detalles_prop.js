@@ -1,6 +1,6 @@
-import apiDetalleCall from "./Propiedades/apiDetalle.js";
-import apiCallMapDetail from "./Propiedades/apiMapDetalle.js";
-import { PropertyData } from "../js/Data/userId.js";
+import apiDetalleCall from "../Propiedades/apiDetalle.js";
+import apiCallMapDetail from "../Propiedades/apiMapDetalle.js";
+import { PropertyData } from "../../js/Data/userId.js";
 
 const { CodigoUsuarioMaestro, companyId } = PropertyData;
 

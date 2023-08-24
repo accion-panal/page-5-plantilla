@@ -1,38 +1,33 @@
 import { getProperties } from "../services/PropertiesServices.js"
-
 import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
-
 import { parseToCLPCurrency, clpToUf, validationUF,validationCLP, ufToClp } from "../utils/getExchangeRate.js"
-
 import { PropertyData, limitDataApi } from "../Data/userId.js";
 
 
-
-
 export default async function apiDestaCall(){
-    const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
+    console.log('%c==================','color:green');
+    console.log('%cApi-Destacada Api-Destacada Api-Destacada','color:green');
 
-    let {data} = await getProperties(1, limitDataApi.limit, CodigoUsuarioMaestro, 1, companyId, realtorId);;
-    
+    const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
+    let {data} = await getProperties(1, limitDataApi.limit, CodigoUsuarioMaestro, 1, companyId, realtorId);
 
     const response = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response?.UFs[0]?.Valor
     const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
 
     //! transformar valor del uf a int
-	const cleanedValue = ufValue.replace(/\./g, '').replace(',', '.');
-	const ufValueAsInt = parseFloat(cleanedValue).toFixed(0);
-	//!--
+    const cleanedValue = ufValue.replace(/\./g, '').replace(',', '.');
+    const ufValueAsInt = parseFloat(cleanedValue).toFixed(0);
 
     //todo: Modificar url de image
-    data = data.map(item => {
-        // Reemplazar "\\" por "//" en la propiedad "image"
+    // Reemplazar "\\" por "//" en la propiedad "image"
+    data = data.map(item => { 
         item.image = item.image.replace(/\\/g, "//");
         return item;
     });
 
     let filtrado = data.filter(data => data.highlighted != null && data.highlighted != false);
-    console.log(filtrado)
+    console.log('data Filtrado: ',filtrado)
 
     document.getElementById('container-props-destacadas').innerHTML = filtrado.map(filtrado => 
         `<li class="splide__slide" >	 
@@ -59,27 +54,27 @@ export default async function apiDestaCall(){
                 </div>
             </div>
         </li>` 
-).join('');
+    ).join('');
 
-let splide = new Splide(".splide", {
-    type: "loop",
-    autoplay: "play",
-    perPage: 3,
-    breakpoints: {
-        1399: {
-          perPage: 2,
-        },
-        900: {
-          perPage: 1,
+    let splide = new Splide(".splide", {
+        type: "loop",
+        autoplay: "play",
+        perPage: 3,
+        breakpoints: {
+            1399: {
+            perPage: 2,
+            },
+            900: {
+            perPage: 1,
+            }
         }
-      }
-});
-splide.mount();
-
+    });
+    splide.mount();
+    console.log('%c==================','color:green');
 }
 
 document.addEventListener("DOMContentLoaded", function () {
 	let splide = new Splide(".splide");
 	splide.mount();
 });
-apiDestaCall();
+

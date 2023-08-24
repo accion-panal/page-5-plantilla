@@ -2,6 +2,7 @@ import { ContactInformation } from '../Data/userId.js';
 
 const loadInformation = () => {
     localStorage.removeItem('globalQuery');
+    localStorage.removeItem('LimitProp');
     let email = document.getElementById('email-info');
     if (email !== null) {
         email.innerHTML = `

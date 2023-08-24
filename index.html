@@ -154,19 +154,19 @@
 									</div>
 									<div class="col-lg">
 										<div class="form-group mb-4">
-											<select class="form-select" name="region" id="region">
+											<select class="form-select" name="regionTextId" id="regionTextId">
 												<option value="0" selected>Región</option>
 												
 											</select>
 										</div>
 										<div class="form-group mb-4">
-											<select class="form-select" name="commune" id="commune">
+											<select class="form-select" name="communeTextId" id="communeTextId">
 												<option value="" selected>Comuna</option>
 											
 											</select>
 										</div>
 										<div class="form-group mb-4">
-											<input type="number" class="form-control" min="0" pattern="^[0-9]+" name="Superficie_m2" id="Superficie_m2"/>						
+											<input type="number" class="form-control" min="0" pattern="^[0-9]+" name="Superficie_m2" id="Superficie_m2" placeholder="Superficie m2"/>						
 										</div>
 									</div>
 								</div>
@@ -324,20 +324,15 @@
 		<script src="js/custom.js"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<!-- <script type="module" src="/js/utils/getValuesOfinputs.js"></script> -->
-		<!-- <script type="module" src="/js/utils/setValuesOfInputs.js"></script> -->
 
+		<!-- Api - Propiedades Destacada-->
+		<script type="module" src="/js/pages/destacada_prop.js"></script>
 
-		<script type="module" src="/js/destacada_prop.js"></script>
-		<!-- <script type="module" src="/js/utils/filterOnSubmitIndex.js"></script>
-		<script type="module" src="/js/utils/filterOnSubmit.js"></script> -->
-
-		<script type="module" src="/js/utils/filterIndex.js"></script>
+		<!-- Filtros hacia propiedades -->
 		<script type="module" src="/js/utils/getSelects.js"></script>
+		<script type="module" src="/js/utils/filterIndex.js"></script>
+		
 
 		<script type="module" src="js/Data/FooterInfo.js"></script>
-
-
-		<!-- <script type="module" src="/js/utils/getValuesOfinputs.js"></script> -->
 	</body>
 	</html>

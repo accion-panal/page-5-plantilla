@@ -1,9 +1,7 @@
-import ExchangeRateServices from "../services/ExchangeRateServices.js";
-import { parseToCLPCurrency, clpToUf } from "./getExchangeRate.js";
 import { PropertyData } from '../Data/userId.js';
 
-
 localStorage.removeItem('globalQuery');
+localStorage.removeItem('LimitProp');
 
 let query = {
   page: 1,
@@ -25,25 +23,10 @@ let query = {
   surface_m2:null
 }
 
-let aux = new URLSearchParams(window.location.search);
-
-for (let p of aux) {
-  query[`${p[0]}`] = p[1];
-}
-
-/* radio button - OperatyType */
-/* document.getElementById('flexRadioDefault1').addEventListener('change', mostrarValor);
-document.getElementById('flexRadioDefault2').addEventListener('change', mostrarValor);
-document.getElementById('flexRadioDefault3').addEventListener('change', mostrarValor);
-function mostrarValor(event) {
-  query.operationType = event.target.value;
-  console.log(query.operationType);
-} */
-
 //! Operation type
 document.getElementById('operationType').addEventListener('change', (element) => {
-    query.operationType = element.target.value;
-    console.log('operation Type: ',element.target.value)
+  query.operationType = element.target.value;
+  console.log('operation Type: ',element.target.value)
 })
 
 //! tipo de propiedad
@@ -53,34 +36,30 @@ document.getElementById('typeOfProperty').addEventListener('change', (element) =
 })
 
 //! region
-document.getElementById("region").addEventListener("change", (element) => {
+document.getElementById("regionTextId").addEventListener("change", (element) => {
   query.region = element.target.value;
-  console.log('region: ',element.target.value)
+  console.log('regionTextId: ',element.target.value)
 
-  if(element.target.value == 0){
-    query.commune = null;
-    console.log('commune:', query.commune)
-  }
+  query.commune = null;
+  console.log('communeTextId:', query.commune)
 })
 
 //! comuna
-document.getElementById("commune").addEventListener("change", (element) => {
+document.getElementById("communeTextId").addEventListener("change", (element) => {
   query.commune = element.target.value;
-  console.log('commune: ',element.target.value)
+  console.log('communeTextId: ',element.target.value)
 })
 
 //! habitaciones
 document.getElementById("bedrooms").addEventListener("change", (element) => {
   query.bedrooms = element.target.value;
   console.log('bedrooms: ',element.target.value)
-
 })
 
 //! Estacionamientos
 document.getElementById("covered_parking_lots").addEventListener("change", (element) => {
   query.covered_parking_lots = element.target.value;
   console.log('covered_parking_lots: ',element.target.value)
-
 })
 
 //! baños
@@ -99,7 +78,6 @@ function mostrarValorTypePrice(event) {
 
 //! precio minimo
 document.getElementById("min_price").addEventListener("change", (element) => {
-  // return element.target.value;
   query.min_price = element.target.value;
   console.log('min_price: ',element.target.value)
 })
@@ -120,25 +98,20 @@ document.getElementById("Superficie_m2").addEventListener("change", (element) =>
     document.getElementById("Superficie_m2").value = '';
     query.surface_m2 = null;
   }
-  
 })
 
 document.getElementById("buscar")?.addEventListener("click", async (event) => {
   event.preventDefault();
-  console.log(query);
+  console.log('%c==================','color:yellow');
+  console.log('%cFilterIndex-Button FilterIndex-Button FilterIndex-Button','color:yellow')
+  console.log('Query: ',query);
 
-  /* window.open(
-    window.location.origin +
-    `/properties.html?page=${query.page}&limit=${query.limit}&CodigoUsuarioMaestro=${query.CodigoUsuarioMaestro}&realtorId=${query.realtorId}&statusId=${query.statusId}&operationType=${query.operationType}&typeOfProperty=${query.typeOfProperty}&region=${query.region}&commune=${query.commune}&min_price=${query.min_price}&max_price=${query.max_price}&covered_parking_lots=${query.covered_parking_lots}&bathrooms=${query.bathrooms}&surface_m2=${query.surface_m2}&bedrooms=${query.bedrooms}`
-  ); */
   //* Guardar el response en el globalResponse
   localStorage.setItem('globalQuery', JSON.stringify(query));
 
-  window.open(
-    window.location.origin +
-    `/propiedad.html`
-  );
-  /* localStorage.removeItem('globalQuery'); */
+  //* Abrir nueva pestania (propiedad.html)
+  window.open(window.location.origin +`/propiedad.html`);
 
+  console.log('%c==================','color:yellow');
 
 });
