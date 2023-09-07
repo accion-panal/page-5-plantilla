@@ -191,18 +191,18 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
       document.getElementById("container-prop-card").innerHTML = data.map(data => `
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4" id="" data-aos="fade-up" data-aos-delay="100" >
           <div class="media-entry" id="getProperty">
-            <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" >
+            <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">
                 <img src="${data.image != undefined && data.image != "" && data.image != null ? data.image : "images/Sin.png"} " alt="Image" class="img-fluid imgCasas">
             </a>
             <div class="bg-white m-body">
               <span class="date" >${data.operation}</span> -
               <span class="date"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}, ${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price) : parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))}</b></span>
-              <h3 class="mt-3 textLimitClass"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}">${data.title}</a></h3>
+              <h3 class="mt-3 textLimitClass"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">${data.title}</a></h3>
               <p>${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad"}, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
               <p><b>Habitacion(es):</b> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}</p>
               <p><b>Baños(s):</b>${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0"}</p>
               <p><b>Estacionamiento(s):</b> ${data.coveredParkingLots != undefined && data.coveredParkingLots != null && data.coveredParkingLots != "" ? data.coveredParkingLots : "0"}</p>
-              <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" name="VerDetalle"  class="more d-flex align-items-center float-start">
+              <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank" name="VerDetalle"  class="more d-flex align-items-center float-start">
                 <span class="label" id="getProperty">Ver Detalle</span>
                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
               </a>
@@ -221,7 +221,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
           <div class="media-entry">
             <div class="row">
               <div class="col-4">
-                <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}">
+                <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">
                   <img src="${data.image != undefined && data.image != "" && data.image != null ? data.image : "images/Sin.png"}" alt="Image" class="img-fluid imgCasasList">
                 </a>
               </div>
@@ -229,13 +229,13 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
                 <div class="bg-white m-body">
                   <span class="date">${data.operation}</span>-
                   <span class="date"><b>UF ${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}, ${validationCLP(data.currency.isoCode) ? parseToCLPCurrency(data?.price) : parseToCLPCurrency(ufToClp(data.price, ufValueAsInt))} </b></span>
-                  <h3 class="mt-3"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}">${data.title}</a></h3>
+                  <h3 class="mt-3"><a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">${data.title}</a></h3>
                   <p>${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad"}, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
                   <p><b>Habitacion(es):</b> ${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0"}</p>
                   <p><b>Baños(s):</b> ${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0"}</p>
                   <p><b>Estacionamiento(s):</b>${data.coveredParkingLots != undefined && data.coveredParkingLots != null && data.coveredParkingLots != "" ? data.coveredParkingLots : "0"}</p>
   
-                  <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" class="more d-flex align-items-center float-start">
+                  <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank" class="more d-flex align-items-center float-start">
                     <span class="label">Ver Detalle</span>
                     <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                   </a>
