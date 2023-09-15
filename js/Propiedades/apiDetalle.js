@@ -113,7 +113,7 @@ export default async function apiDetalleCall(id,statusId, companyId) {
 
 	document.getElementById('data-realtor').innerHTML= `
 		<img src="${data?.realtor.img || "images/Sin.png"}" class="img-fluid imgCorredor mb-3">
-		<h3 class="text-black">${data.realtor.name} ${data.realtor.lastName}</h3>
+		<h3 class="text-black">${data.realtor.name} ${data.realtor.lastName != null ? data.realtor.lastName :''}</h3>
 		<p>${data?.realtor.mail || "No registra email"}</p>
 		<p>+569 9 41198136</p>
 		<div class="">

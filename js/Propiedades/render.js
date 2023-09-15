@@ -70,6 +70,30 @@ function setContainerLoading(isLoading){
   }
 }
 
+function validateImage(image){
+  if(image){
+    if(image.endsWith('.jpg') || image.endsWith('.png') || image.endsWith('.jpeg')){
+      return `<img src=${image} alt="Image" class="img-fluid imgCasas">`;
+    }
+    return `<img src="images/Sin.png" alt="Image" class="img-fluid imgCasas">`;
+  }
+  else{
+    return `<img src="images/Sin.png" alt="Image" class="img-fluid imgCasas">`;
+  }
+}
+
+function validateImageList(image){
+  if(image){
+    if(image.endsWith('.jpg') || image.endsWith('.png') || image.endsWith('.jpeg')){
+      return `<img src=${image} alt="Image" class="img-fluid imgCasasList">`;
+    }
+    return `<img src="images/Sin.png" alt="Image" class="img-fluid imgCasasList">`;
+  }
+  else{
+    return `<img src="images/Sin.png" alt="Image" class="img-fluid imgCasasList">`;
+  }
+}
+
 
 
 export default async function renderCall(QueryParams = undefined, NumberPagination = undefined, filtersUrlString = undefined) {
@@ -192,7 +216,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4" id="" data-aos="fade-up" data-aos-delay="100" >
           <div class="media-entry" id="getProperty">
             <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">
-                <img src="${data.image != undefined && data.image != "" && data.image != null ? data.image : "images/Sin.png"} " alt="Image" class="img-fluid imgCasas">
+              ${validateImage(data.image)}
             </a>
             <div class="bg-white m-body">
               <span class="date" >${data.operation}</span> -
@@ -222,7 +246,7 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
             <div class="row">
               <div class="col-4">
                 <a href="/detalle_propiedad.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">
-                  <img src="${data.image != undefined && data.image != "" && data.image != null ? data.image : "images/Sin.png"}" alt="Image" class="img-fluid imgCasasList">
+                  ${validateImageList(data.image)}
                 </a>
               </div>
               <div class="col-8">
