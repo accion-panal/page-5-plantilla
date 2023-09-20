@@ -57,9 +57,9 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Propiedades</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item active" href="propiedad.html">Propiedades</a></li>
+										<li><a class="dropdown-item" href="propiedad.html">Propiedades</a></li>
 										<li><a class="dropdown-item" href="vendida.html">Propiedades vendidas</a></li>
-										<li><a class="dropdown-item" href="arrendada.html">Propiedades arrendadas</a></li>
+										<li><a class="dropdown-item active" href="arrendada.html">Propiedades arrendadas</a></li>
 									</ul>
 								</li>
 								<li><a href="contacto.html">Contáctanos</a></li>
@@ -87,7 +87,7 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-start">
 				<div class="col-lg-6 mx-auto text-center">
-					<h1 class="heading" data-aos="fade-up">Propiedades</h1>
+					<h1 class="heading" data-aos="fade-up">Propiedades arrendadas</h1>
 				</div>
 			</div>
 			<div class="row align-items-center justify-content-start" style="padding-top:1rem !important;">
@@ -98,12 +98,11 @@
 							<div >
 								<div class="row">
 									<div class="col-lg">
-										<div class="form-group mb-4">
-											<select class="form-select" name="operationType" id="operationType">
-												<option value="" selected>Tipo de operación</option>
-												<option value="venta" >Venta</option>
-												<option value="arriendo" >Arriendo</option>
-												<option value="arriendo_temporal" >Arriendo Temporal</option>
+                                        <div class="form-group mb-4">
+											<select class="form-select" name="typeOfProperty" id="typeOfProperty">
+												<option value="" selected>Tipo de propiedad</option>
+												<option value="departamento">Departamento</option>
+												<option value="casa">Casa</option>
 											</select>
 										</div>
 										<div class="form-group mb-4">
@@ -126,13 +125,7 @@
 										</div>
 									</div>
 									<div class="col-lg">
-										<div class="form-group mb-4">
-											<select class="form-select" name="typeOfProperty" id="typeOfProperty">
-												<option value="" selected>Tipo de propiedad</option>
-												<option value="departamento">Departamento</option>
-												<option value="casa">Casa</option>
-											</select>
-										</div>
+								
 										<div class="form-group mb-4">
 											<select class="form-select" name="" id="bedrooms">
 												<option value="" selected>Habitacion(s)</option>
@@ -207,7 +200,7 @@
 						</div>
 						<div class="col-8 col-lg-7">
 							<select id="FilterPrice" name="" class="form-select">
-								<option disabled selected>Seleccione una opción</option>
+								<option disabled selected>Seleccione</option>
 								<option value="MayorMenor">Mayor a menor</option>
 								<option value="MenorMayor">Menor a mayor</option>
 							</select>
